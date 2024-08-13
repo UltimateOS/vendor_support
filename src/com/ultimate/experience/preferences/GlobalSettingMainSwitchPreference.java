@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.arrow.support.preferences;
+package com.ultimate.experience.preferences;
 
 import android.content.Context;
 import android.provider.Settings;
@@ -24,19 +24,19 @@ import androidx.preference.PreferenceDataStore;
 
 import com.android.settingslib.widget.MainSwitchPreference;
 
-public class SecureSettingMainSwitchPreference extends MainSwitchPreference {
+public class GlobalSettingMainSwitchPreference extends MainSwitchPreference {
 
-    public SecureSettingMainSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
+    public GlobalSettingMainSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setPreferenceDataStore(new DataStore());
     }
 
-    public SecureSettingMainSwitchPreference(Context context, AttributeSet attrs) {
+    public GlobalSettingMainSwitchPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPreferenceDataStore(new DataStore());
     }
 
-    public SecureSettingMainSwitchPreference(Context context) {
+    public GlobalSettingMainSwitchPreference(Context context) {
         super(context, null);
         setPreferenceDataStore(new DataStore());
     }
@@ -44,12 +44,12 @@ public class SecureSettingMainSwitchPreference extends MainSwitchPreference {
     private class DataStore extends PreferenceDataStore {
         @Override
         public void putBoolean(String key, boolean value) {
-            Settings.Secure.putInt(getContext().getContentResolver(), key, value ? 1 : 0);
+            Settings.Global.putInt(getContext().getContentResolver(), key, value ? 1 : 0);
         }
 
         @Override
         public boolean getBoolean(String key, boolean defaultValue) {
-            return Settings.Secure.getInt(getContext().getContentResolver(), key,
+            return Settings.Global.getInt(getContext().getContentResolver(), key,
                     defaultValue ? 1 : 0) != 0;
         }
     }

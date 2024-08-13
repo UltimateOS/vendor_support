@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.arrow.support.preferences;
+package com.ultimate.experience.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.arrow.support.preferences.SystemSettingsStore;
+import com.ultimate.experience.preferences.SystemSettingsStore;
 
 public class SystemSettingMasterSwitchPreference extends MasterSwitchPreference {
 
